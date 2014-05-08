@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20140508055730) do
     t.string   "title"
     t.boolean  "completed",  default: false
     t.integer  "user_id"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

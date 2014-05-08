@@ -4,6 +4,7 @@ class CreateTodos < ActiveRecord::Migration
       t.string :title
       t.boolean :completed, default: false
       t.integer :user_id
+      t.integer :position
 
       t.timestamps
     end

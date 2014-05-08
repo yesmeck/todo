@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   delete :sign_out, to: 'sessions#destroy'
 
   resources :todos do
+    collection do
+      post :sort
+    end
+
     member do
       post :complete
       post :uncomplete

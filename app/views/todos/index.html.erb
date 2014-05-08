@@ -2,7 +2,7 @@
   <%= form_for Todo.new, remote: true do |f| %>
     <%= f.text_field :title, placeholder: 'What needs to be done?' %>
   <% end %>
-  <ul id="todos">
+  <ul id="todos" data-sort-url="<%= sort_todos_path %>">
     <%= render @todos  %>
   </ul>
 <% else %>

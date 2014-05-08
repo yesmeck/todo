@@ -3,7 +3,7 @@ class TodosController < ApplicationController
   before_action :set_todo, only: [:complete, :uncomplete, :destroy]
 
   def index
-    @todos = current_user.todos.order(:completed, :id) if user_signed_in?
+    @todos = current_user.todos.order(position: :asc).order(id: :desc) if user_signed_in?
   end
 
   def create
@@ -13,16 +13,21 @@ class TodosController < ApplicationController
 
   def complete
     @todo.complete!
-    @todos = current_user.todos
   end
 
   def uncomplete
     @todo.uncomplete!
-    @todos = current_user.todos
   end
 
   def destroy
     @todo.destroy
+  end
+
+  def sort
+    params[:todo].each_with_index do |id, index|
+      Todo.where(id: id, user: current_user).update_all(position: index + 1)
+    end
+    render nothing: true
   end
 
   private
