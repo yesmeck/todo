@@ -1,15 +1,10 @@
 <% if user_signed_in? %>
-  Hello <%= current_user.email %>, <%= link_to 'Sign out', sign_out_path, method: :delete %>
-<% else %>
-  <%= link_to 'Sign up', sign_up_path %> Or <%= link_to 'Sign in', sign_in_path %>
-<% end %>
-
-<% if user_signed_in? %>
   <%= form_for Todo.new, remote: true do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, placeholder: 'What needs to be done?' %>
   <% end %>
-  <ul id="todo_list">
+  <ul id="todos">
     <%= render @todos  %>
   </ul>
+<% else %>
+  <%= link_to 'Sign up', sign_up_path %> or <%= link_to 'Sign in', sign_in_path %> to manage yor todo list.
 <% end %>
