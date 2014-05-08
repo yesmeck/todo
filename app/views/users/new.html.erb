@@ -1,6 +1,6 @@
 <%= form_for @user, url: sign_up_path do |f| %>
   <% if @user.errors.any? %>
-    <ul>
+    <ul class="errors">
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
@@ -8,10 +8,12 @@
   <% end %>
   <p>
     <%= f.label :email %>
+    <br>
     <%= f.text_field :email %>
   </p>
   <p>
     <%= f.label :password %>
+    <br>
     <%= f.password_field :password %>
   </p>
   <p>
