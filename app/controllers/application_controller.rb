@@ -24,4 +24,8 @@ class ApplicationController < ActionController::Base
                         User.find_by(id: session[:user_id])
                       end
   end
+
+  def authenticate_user!
+    redirect_to sign_in_path unless user_signed_in?
+  end
 end
