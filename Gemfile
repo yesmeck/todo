@@ -41,3 +41,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :test, :development do
   gem 'rspec-rails'
 end
+
+group :test do
+  gem 'factory_girl_rails'
+end

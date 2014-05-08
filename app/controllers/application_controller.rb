@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
     @current_user = user
   end
 
+  def sign_out
+    session.delete(:user_id)
+    @current_user = nil
+  end
+
   def user_signed_in?
     !!current_user
   end
