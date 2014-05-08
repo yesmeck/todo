@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :todos do
     member do
       post :complete
+      post :uncomplete
     end
   end
 end
