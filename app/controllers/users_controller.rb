@@ -8,6 +8,8 @@ class UsersController < ApplicationController
     if @user.save
       sign_in_as @user
       redirect_to root_path
+    else
+      render :new
     end
   end
 

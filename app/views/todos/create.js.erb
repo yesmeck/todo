@@ -1,2 +1,4 @@
-$('#todos').prepend('<%= j render @todo %>');
-$('#todo_title').val('');
+<% if @todo.errors.empty? %>
+  $('#todos').prepend('<%= j render @todo %>');
+  $('#todo_title').val('');
+<% end %>

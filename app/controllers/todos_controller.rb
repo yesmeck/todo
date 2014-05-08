@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :authenticate_user!, expect: [:index]
+  before_action :authenticate_user!, except: [:index]
   before_action :set_todo, only: [:complete, :uncomplete, :destroy]
 
   def index
@@ -8,7 +8,7 @@ class TodosController < ApplicationController
 
   def create
     @todo = current_user.todos.new(todo_params)
-    @todo.save!
+    @todo.save
   end
 
   def complete
