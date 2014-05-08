@@ -1,4 +1,5 @@
 <li id="<%= dom_id todo %>" class="todo <%= 'complete' if todo.completed %>">
   <%= link_to 'Complete', complete_todo_path(todo), method: :post, remote: true %>
   <%= todo.title %>
+  <%= link_to 'Delete', todo_path(todo), method: :delete, remote: true %>
 </li>

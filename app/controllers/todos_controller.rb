@@ -13,6 +13,11 @@ class TodosController < ApplicationController
     @todo.complete!
   end
 
+  def destroy
+    @todo = current_user.todos.find(params[:id])
+    @todo.destroy
+  end
+
   private
 
   def todo_params

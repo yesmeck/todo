@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe TodosController do
+  let(:user) { create(:user) }
+
+  before(:each) do
+    subject.sign_in_as(user)
+  end
+
   describe 'GET index' do
     it 'get the index page' do
       get :index
@@ -10,8 +16,6 @@ describe TodosController do
 
   describe 'POST create' do
     it 'create a new todo' do
-      user = create(:user)
-      subject.sign_in_as(user)
       expect {
         xhr :post, :create, todo: { title: 'make a wish' }
       }.to change { user.todos.count }.by(1)
@@ -20,11 +24,18 @@ describe TodosController do
 
   describe 'POST complete' do
     it 'complete the todo' do
-      user = create(:user)
-      subject.sign_in_as(user)
       todo = create(:todo, completed: false, user: user)
       xhr :post, :complete, id: todo.id
       expect(todo.reload.completed).to be_true
+    end
+  end
+
+  describe 'DELETE destroy' do
+    it 'delete the todo' do
+      todo = create(:todo, user: user)
+      expect {
+        xhr :delete, :destroy, id: todo.id
+      }.to change { Todo.count }.by(-1)
     end
   end
 end
