@@ -30,6 +30,14 @@ describe TodosController do
     end
   end
 
+  describe 'POST uncomplete' do
+    it 'uncomplete the todo' do
+      todo = create(:todo, completed: true, user: user)
+      xhr :post, :uncomplete, id: todo.id
+      expect(todo.reload.completed).to be_false
+    end
+  end
+
   describe 'DELETE destroy' do
     it 'delete the todo' do
       todo = create(:todo, user: user)
