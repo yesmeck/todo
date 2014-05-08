@@ -8,6 +8,11 @@ class TodosController < ApplicationController
     @todo.save!
   end
 
+  def complete
+    @todo = current_user.todos.find(params[:id])
+    @todo.complete!
+  end
+
   private
 
   def todo_params

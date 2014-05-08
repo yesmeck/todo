@@ -1,0 +1,7 @@
+#todo_list {
+  .todo {
+    &.complete {
+      color: grey;
+    }
+  }
+}

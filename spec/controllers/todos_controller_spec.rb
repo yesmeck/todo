@@ -17,4 +17,14 @@ describe TodosController do
       }.to change { user.todos.count }.by(1)
     end
   end
+
+  describe 'POST complete' do
+    it 'complete the todo' do
+      user = create(:user)
+      subject.sign_in_as(user)
+      todo = create(:todo, completed: false, user: user)
+      xhr :post, :complete, id: todo.id
+      expect(todo.reload.completed).to be_true
+    end
+  end
 end

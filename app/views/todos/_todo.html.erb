@@ -1,1 +1,4 @@
-<li id="<%= dom_id todo %>" class="todo"><%= todo.title %></li>
+<li id="<%= dom_id todo %>" class="todo <%= 'complete' if todo.completed %>">
+  <%= link_to 'Complete', complete_todo_path(todo), method: :post, remote: true %>
+  <%= todo.title %>
+</li>
