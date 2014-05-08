@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508042507) do
+ActiveRecord::Schema.define(version: 20140508055730) do
+
+  create_table "todos", force: true do |t|
+    t.string   "title"
+    t.boolean  "completed"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email"
