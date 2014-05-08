@@ -12,7 +12,7 @@ describe UsersController do
     it 'create a new user' do
       expect {
         post :create, { user: { email: 'user@example.com', password: 'password' }  }
-      }.to change(User, :count).by(1)
+      }.to change { User.count }.by(1)
     end
   end
 end
