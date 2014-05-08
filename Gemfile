@@ -38,10 +38,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-group :test, :development do
-  gem 'rspec-rails'
-end
-
 group :test do
   gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'capybara-webkit'
 end
