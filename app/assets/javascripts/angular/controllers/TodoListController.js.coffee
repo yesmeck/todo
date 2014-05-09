@@ -10,3 +10,7 @@ angular.module('todoList').controller 'TodoListController', ($scope, Todo) ->
   $scope.complete = (todo) ->
     todo.completed = true
     todo.$update()
+
+  $scope.destroy = (todo) ->
+    todo.$delete()
+    $scope.todos.splice($scope.todos.indexOf(todo), 1)
