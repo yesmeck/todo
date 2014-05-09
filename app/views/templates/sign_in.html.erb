@@ -1,0 +1,16 @@
+<form ng-submit="signIn()" >
+  <p>
+    <%= label_tag :email %>
+    <br>
+    <%= text_field_tag :email, '', 'ng-model' => 'email' %>
+  </p>
+  <p>
+    <%= label_tag :password %>
+    <br>
+    <%= password_field_tag :password, '', 'ng-model' => 'password' %>
+  </p>
+  <p>
+    <%= submit_tag 'Sign in' %>
+    <a href="/sign_up">Sign up</a>
+  </p>
+</form>

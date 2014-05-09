@@ -3,4 +3,3 @@ angular.module('todoList').factory 'Todo', ($resource) ->
     update: { method: 'PUT' }
   })
 
-
