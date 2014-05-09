@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  root 'todos#index'
+  root 'templates#index'
+
+  get ':any', to: 'templates#index'
+  get '/templates/:path.html', to: 'templates#template', constraints: { path: /.+/ }
+
+  namespace :api, defaults: { format: :json } do
+    resources :todos
+  end
 
   get :sign_up, to: 'users#new'
   post :sign_up, to: 'users#create'

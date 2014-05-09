@@ -1,0 +1,11 @@
+<%= form_for Todo.new, remote: true do |f| %>
+  <%= f.text_field :title, placeholder: 'What needs to be done?' %>
+<% end %>
+<ul id="todos">
+  <li ng-repeat="todo in todos" class="todo" ng-class="{complete: todo.completed}">
+    <a href="#" class="complete_btn">✔</a>
+    {{todo.title}}
+    <a href="#" class="destroy_btn">✘</a>
+  </li>
+</ul>
+
