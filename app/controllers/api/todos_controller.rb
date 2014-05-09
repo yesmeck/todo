@@ -11,6 +11,7 @@ class Api::TodosController < ApplicationController
 
   def create
     @todo = current_user.todos.new(todo_params)
+    @todo.save
     respond_with @todo
   end
 

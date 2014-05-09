@@ -1,6 +1,6 @@
-<%= form_for Todo.new, remote: true do |f| %>
-  <%= f.text_field :title, placeholder: 'What needs to be done?' %>
-<% end %>
+<form id="new_todo" ng-submit="create()">
+  <input id="todo_title" ng-model="todoTitle" placeholder="What needs to be done?" type="text">
+</form>
 <ul id="todos">
   <li ng-repeat="todo in todos" class="todo" ng-class="{complete: todo.completed}">
     <a href="#" class="complete_btn">✔</a>
