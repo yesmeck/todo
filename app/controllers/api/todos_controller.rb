@@ -1,6 +1,6 @@
 class Api::TodosController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_todo, only: [:complete, :uncomplete, :destroy]
+  before_action :set_todo, only: [:update, :destroy]
 
   respond_to :json
 
@@ -15,13 +15,8 @@ class Api::TodosController < ApplicationController
     respond_with @todo
   end
 
-  def complete
-    @todo.complete!
-    respond_with @todo
-  end
-
-  def uncomplete
-    @todo.uncomplete!
+  def update
+    @todo.update(todo_params)
     respond_with @todo
   end
 
@@ -40,7 +35,7 @@ class Api::TodosController < ApplicationController
   private
 
   def todo_params
-    params.require(:todo).permit(:title)
+    params.require(:todo).permit(:title, :completed)
   end
 
   def set_todo

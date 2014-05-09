@@ -3,9 +3,9 @@
 </form>
 <ul id="todos">
   <li ng-repeat="todo in todos" class="todo" ng-class="{complete: todo.completed}">
-    <a href="#" class="complete_btn">✔</a>
+    <a href="#" class="complete_btn" ng-click="complete(todo)">✔</a>
     {{todo.title}}
-    <a href="#" class="destroy_btn">✘</a>
+    <a href="#" class="destroy_btn" ng-click="destroy(todo)">✘</a>
   </li>
 </ul>
 

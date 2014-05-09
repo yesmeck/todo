@@ -6,3 +6,7 @@ angular.module('todoList').controller 'TodoListController', ($scope, Todo) ->
     todo.$save()
     $scope.todos.unshift(todo)
     $scope.todoTitle = ''
+
+  $scope.complete = (todo) ->
+    todo.completed = true
+    todo.$update()
