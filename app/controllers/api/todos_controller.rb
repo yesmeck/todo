@@ -26,7 +26,7 @@ class Api::TodosController < ApplicationController
   end
 
   def sort
-    params[:todo].each_with_index do |id, index|
+    params[:_json].each_with_index do |id, index|
       Todo.where(id: id, user: current_user).update_all(position: index + 1)
     end
     render nothing: true

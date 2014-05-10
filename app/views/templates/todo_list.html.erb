@@ -1,7 +1,7 @@
 <form id="new_todo" ng-submit="create()">
   <input id="todo_title" ng-model="todoTitle" placeholder="What needs to be done?" type="text">
 </form>
-<ul id="todos">
+<ul id="todos" ui-sortable="sortableOptions" ng-model="todos">
   <li ng-repeat="todo in todos" class="todo" ng-class="{complete: todo.completed}">
     <a href="#" class="complete_btn" ng-click="complete(todo)">✔</a>
     {{todo.title}}

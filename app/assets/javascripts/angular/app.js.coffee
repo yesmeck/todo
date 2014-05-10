@@ -1,4 +1,4 @@
-todoList = angular.module('todoList', ['ngRoute', 'ngResource'])
+todoList = angular.module('todoList', ['ngRoute', 'ngResource', 'ui.sortable'])
 
 todoList.config ($httpProvider) ->
   authToken = $("meta[name=\"csrf-token\"]").attr("content")

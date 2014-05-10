@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.sortable
 //= require angular
 //= require angular-route
 //= require angular-resource
+//= require ui-sortable
 //= require_tree .
