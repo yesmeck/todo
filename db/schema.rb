@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140508055730) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "todos", force: true do |t|
     t.string   "title"
     t.boolean  "completed",  default: false
@@ -29,7 +32,7 @@ ActiveRecord::Schema.define(version: 20140508055730) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email"
-  add_index "users", ["password_digest"], name: "index_users_on_password_digest"
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["password_digest"], name: "index_users_on_password_digest", using: :btree
 
 end

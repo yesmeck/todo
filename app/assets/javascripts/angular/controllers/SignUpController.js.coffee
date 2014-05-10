@@ -1,4 +1,4 @@
-angular.module('todoList').controller 'SignUpController', ($rootScope, $scope, $http, $location) ->
+angular.module('todoList').controller 'SignUpController', [ '$rootScope', '$scope', '$http', '$location', ($rootScope, $scope, $http, $location) ->
 
   $scope.signUp = ->
     $http.post('/api/sign_up', { user: { email: $scope.email, password: $scope.password }}).success( ->
@@ -8,4 +8,4 @@ angular.module('todoList').controller 'SignUpController', ($rootScope, $scope, $
     ).error((errors) ->
       $scope.errors = errors
     )
-
+]

@@ -1,4 +1,4 @@
-angular.module('todoList').controller 'TodoListController', ($scope, Todo, $http) ->
+angular.module('todoList').controller 'TodoListController', [ '$scope', 'Todo', '$http', ($scope, Todo, $http) ->
   $scope.todos = Todo.query()
 
   $scope.create = ->
@@ -18,3 +18,4 @@ angular.module('todoList').controller 'TodoListController', ($scope, Todo, $http
   $scope.sortableOptions =
     stop: (e, ui) ->
       $http.post('/api/todos/sort', $scope.todos.map((todo) -> todo.id))
+]
