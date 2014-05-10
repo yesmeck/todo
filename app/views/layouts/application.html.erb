@@ -5,15 +5,10 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <script>
-    <% if user_signed_in? %>
-        window.currentUser = { email: '<%= current_user.email %>' };
-    <% end %>
-  </script>
 </head>
 <body>
 
-  <div id="header" ng-controller="UserController" ng-init="init()">
+  <div id="header" ng-controller="HeaderController">
     <%= link_to 'Todo List', root_path %>
     <div id="user_info" ng-show="user">
       Hello {{ user }}, <%= link_to 'Sign out', sign_out_path, method: :delete %>
