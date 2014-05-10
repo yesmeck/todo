@@ -5,5 +5,7 @@ angular.module('todoList').controller 'SignInController', ($rootScope, $scope, $
       $rootScope.user = $scope.email
       $rootScope.$emit('userSignedIn', $scope.email)
       $location.path('/')
+    ).error( (errors) ->
+      $scope.errors = errors
     )
 

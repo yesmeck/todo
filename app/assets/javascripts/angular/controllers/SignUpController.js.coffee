@@ -6,6 +6,6 @@ angular.module('todoList').controller 'SignUpController', ($rootScope, $scope, $
       $rootScope.$emit('userSignedIn', $scope.email)
       $location.path('/')
     ).error((errors) ->
-      console.log(errors)
+      $scope.errors = errors
     )
 

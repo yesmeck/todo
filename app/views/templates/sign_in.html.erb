@@ -1,4 +1,7 @@
 <form ng-submit="signIn()" >
+  <ul class="errors">
+    <li ng-repeat="error in errors">{{error}}</li>
+  </ul>
   <p>
     <%= label_tag :email %>
     <br>
